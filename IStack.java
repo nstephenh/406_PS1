@@ -22,8 +22,10 @@ Places you might see stacks:
          if there are leftover (s at the end, expression is unbalanced.
           
 */
- 
- 
+
+
+import java.util.EmptyStackException;
+
 public interface IStack<T> extends Iterable<T>
 {
     /**
@@ -40,7 +42,7 @@ public interface IStack<T> extends Iterable<T>
      * This accessor returns a reference to the item atop the stack
      * @return the item on the top of teh stack
      * @throws EmptyStackException if the stack is empty
-     */ 
+     */
     public T peek();
     /**
      * This mutator removes the top item from the stack and returns it.

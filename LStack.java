@@ -1,4 +1,6 @@
+import java.util.EmptyStackException;
 import java.util.Iterator;
+
 public class LStack<T> implements IStack<T>
 {
     private Link<T> top;
@@ -52,6 +54,9 @@ public class LStack<T> implements IStack<T>
         top = top.getNext();
         //sz--;
         return out;
+    }
+    public void clear(){
+        top = null;
     }
     /**
      * This returns the number of items on  this stack.

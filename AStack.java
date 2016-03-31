@@ -1,3 +1,4 @@
+import java.util.EmptyStackException;
 import java.util.Iterator;
 import java.util.Arrays;
 public class AStack<T> implements IStack<T>
@@ -99,7 +100,7 @@ public class AStack<T> implements IStack<T>
     {
         //TODO:  implement this!!!
         return new Navigator<T>();
-    }   
+    }
     public void clear()
     {
         sz = 0;

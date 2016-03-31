@@ -1,3 +1,6 @@
+import java.util.ArrayList;
+import java.util.Map;
+
 /**
 *   Use for a stack the implmeentations we developed in class.
 *   Place this code in the same diirectory as your copies of AStack,
@@ -28,7 +31,7 @@ public class PS1
     */   
     public Map<String, ArrayList<Integer>> extractTagTypes(String fileName)
     {
-        
+        return null;
     }
     
     /**

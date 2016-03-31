@@ -15,10 +15,26 @@ public class PS1
     *   @return true if the parens are well-formed
     */
     
-    public boolean parensRight(String expr)
-    {
+    public static boolean parensRight(String expr) {
         IStack<Character> s= new AStack<>();
-        return false;
+        //Doing this with a stack is horribly inefficient,
+        // because we have to iterate through both the string and stack
+        int i = 0;
+        while (i < expr.length()){
+            s.push(expr.charAt(i));
+            i++;
+        }
+        int parencount = 0;
+        while (!(s.isEmpty())){
+            Character cur = s.pop();
+            if (cur.equals('(')){
+                parencount++;
+            }
+            if (cur.equals(')')){
+                parencount--;
+            }
+        }
+        return (parencount == 0);
     }
     /**
     *   Annoying but not too difficult problem
@@ -48,6 +64,7 @@ public class PS1
         return false;   
     }
     public static void main(String[] args){
-
+        System.out.println(parensRight("(()"));
+        System.out.println(parensRight("(())"));
     }
 }

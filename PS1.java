@@ -47,4 +47,7 @@ public class PS1
         IStack<String> s= new AStack<>();
         return false;   
     }
+    public static void main(String[] args){
+
+    }
 }

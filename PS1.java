@@ -80,7 +80,9 @@ public class PS1
                     if (cur =='<'){
                         start = j;
                     }
-                    if ((start != -1) && (cur == '>')){
+                    //Since the end of the defining part of the tag is always > or whitespace,
+                    //We can use that to define the end of our tags.
+                    if ((start != -1) && ((cur == '>') || Character.isWhitespace(cur))){
                         String tag = line.substring(start +1, j);
                         if (dict.containsKey(tag)) {
                             //If the tag aready exists append the line number to the array
@@ -88,11 +90,13 @@ public class PS1
                             ArrayList<Integer> newcount = oldcount;
                             newcount.add(i);
                             dict.replace(tag, oldcount, newcount);
-                        }else{
+                        }else {
                             ArrayList<Integer> newcount = new ArrayList<>();
                             newcount.add(i);
                             dict.put(tag, newcount);
                         }
+                        start = -1; //Reinitialize in case of another tag
+
                     }
                     j++;
                 }

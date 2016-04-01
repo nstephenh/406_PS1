@@ -31,7 +31,7 @@ public class HTUtils
             {   
                 end++;
             }
-        System.out.printf("open = %s, end = %s\n", open, end);
+        //System.out.printf("open = %s, end = %s\n", open, end);
         out.add(line.substring(open + 1, end));
         }
         return out;

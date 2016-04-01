@@ -2,10 +2,7 @@ import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
-import java.util.StringJoiner;
+import java.util.*;
 
 /**
 *   Use for a stack the implmeentations we developed in class.
@@ -120,11 +117,58 @@ public class PS1
     public static boolean isWellFormedTagSet(String[] moo)
     {
         IStack<String> s= new AStack<>();
-        return false;   
+        int i = 0;
+        while (moo.length > i){
+            s.push(moo[i]);
+            i++;
+        }
+        i = 0;
+        Map<String, Integer> count = new HashMap<>();
+        while (!(s.isEmpty())){
+            String tag = s.pop();
+            //If the tag does not contain a slash (eg not an end tag of something like <br/>)
+            if (!(tag.contains("/"))) {
+                if (count.containsKey(tag)) {
+                    //If the tag aready exists increment the count
+                    int oldcount = count.get(tag);
+                    int newcount = oldcount;
+                    newcount++;
+                    count.replace(tag, oldcount, newcount);
+                } else {
+                    count.put(tag, 1);
+                }
+            }
+            //If the tag is something like <br/> we can ignore it
+            if (!(tag.endsWith("/"))){
+                if (tag.startsWith("/")){
+                    tag = tag.substring(1);
+                    if (count.containsKey(tag)) {
+                        //If the tag aready exists recrement the count
+                        int oldcount = count.get(tag);
+                        int newcount = oldcount;
+                        newcount--;
+                        count.replace(tag, oldcount, newcount);
+                    } else {
+                        count.put(tag, -1);
+                    }
+                }
+            }
+        }
+        System.out.println(count.toString());
+        Collection<Integer> zeroes = count.values();
+        zeroes.removeIf(p -> p==0);
+        System.out.println(count.toString());
+        return zeroes.isEmpty();
     }
     public static void main(String[] args){
-        System.out.println(parensRight("(()"));
-        System.out.println(parensRight("(())"));
-        System.out.println(extractTagTypes("PS1.html"));
+        System.out.println(parensRight("(()")); //Should be false
+        System.out.println(parensRight("(())")); //Should be true
+        System.out.println(extractTagTypes("PS1.html")); //See expected results.txt
+        ArrayList<String> test = HTUtils.getAllTags("<table> <tr><th>Test</th><th>Table</th><th>total</th><th>abuse</th></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><th colspan = \"4\">Puke</th></tr></table>");
+        String[] moretest = test.toArray(new String[0]);
+        System.out.println(isWellFormedTagSet(moretest)); //Should be true
+        ArrayList<String> test2 = HTUtils.getAllTags("<table> <th>Test</th><th>Table</th><th>total</th><th>abuse</th></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><td>Test</td><td>Table</td><td>total</td><td>abuse</td></tr> <tr><th colspan = \"4\">Puke</th></tr></table>");
+        String[] moretest2 = test2.toArray(new String[0]);
+        System.out.println(isWellFormedTagSet(moretest2)); //Should be false
     }
 }

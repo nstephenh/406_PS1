@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" /> 
+<link rel="stylesheet" type="text/css" 
+href ="http://www.ncssm.edu/~morrison/CSS/pageContent.css" />
+<link rel="stylesheet" type="text/css" 
+href ="http://www.ncssm.edu/~morrison/CSS/boxes.css" />
+<link rel="stylesheet" type="text/css" 
+href ="http://www.ncssm.edu/~morrison/CSS/threePageNEW.css" />
+<link rel="stylesheet" type="text/css" 
+href ="http://www.ncssm.edu/~morrison/CSS/menus.css" />
+<link rel = "shortcut icon" href = "http://www.ncssm.edu/~morrison/CSS/rhino.ico"/>
+<script type = "text/javascript" src = 
+"http://www.ncssm.edu/~morrison/SCRIPTS/menus.js"></script>
+<script type = "text/javascript" src = "http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="https://google-code-prettify.googlecode.com/svn/loader/run_prettify.js"></script>
+<style type = "text/css">
+pre.prettyprint{
+border: none !important;
+}
+</style>
+<!--
+Uncomment for mathJax
+<script type="text/javascript"
+  src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script>
+-->
+<!--
+Uncomment for JQuery
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
+-->
+<!--
+Uncomment for do-nows
+<script type = "text/javascript">
+    var show = true;
+    var hideDiv = function(divID)
+    {
+        jQuery("#" + divID).hide();
+    }
+    var showDiv = function(divID)
+    {
+        jQuery("#" + divID).show();
+    }
+    var change = function(divID)
+    {
+        if(!show)
+            hideDiv(divID);
+        else
+            showDiv(divID);
+        show = !show;
+    }
+    jQuery(document).ready(function()
+    {
+        hideDiv("doNow1");
+    });
+</script>
+-->
+
+        <title>CSC406 Specs: PS1</title>
+
+</head>
+<body>
+
+<header>
+<h2>Morrison's 1516T3 CSC 406: PS1</h2>
+<div id = "menu">
+<ul>
+   <li class ='active has-sub'><a href='http://www.ncssm.edu/~morrison/currentClasses'><span>Current Classes</span></a>
+        <ul>
+            <li><a href = "http://www.ncssm.edu/~morrison/currentClasses/BF">CSC 404</a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/currentClasses/C">CSC 412</a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/java8">Java 8</a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/javaFX">Java FX</a></li>
+        </ul>
+   </li>
+   <li class='active has-sub'><a href='http://www.ncssm.edu/~morrison/code'><span>Code</span></a>
+        <ul>
+            <li><a href = "http://www.ncssm.edu/~morrison/code/python"><span>Python</span></a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/code/java"><span>Java</span></a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/code/C"><span>C</span></a></li>
+            <li><a href = "https://github.com/ncmathsadist"><span>Morrison's GitHub</span></a></li>
+
+       </ul>
+   </li>
+   <li class='active has-sub'><a href='http://www.ncssm.edu/~morrison/math'><span>Math</span></a>
+      <ul>
+            <li><a href = "http://math.stackexchange.com/users/4154/ncmathsadist"><span>Stack Exchange Profile</span></a></li>
+      </ul>
+   </li>
+   <li class='active has-sub'><a href='http://www.ncssm.edu/~morrison/school'><span>School</span></a>
+        <ul>
+            <li><a href = "http://www.ncssm.edu/~morrison/school/ATC"> <span>Academic Tech Committee</span></a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/school/college"> <span>College Matters</span></a></li>
+    </ul>
+   </li>
+   <li class='active has-sub'><a href='http://www.ncssm.edu/~morrison/general'><span>Contact/Schedule</span></a>
+        <ul>
+            <li><a href = "http://www.ncssm.edu/~morrison/general/schedule.php"><span>Schedule</span></a></li>
+            <li><a href = "http://www.ncssm.edu/~morrison/general/contact.php"><span>Contact</span></a></li>
+            <li class = 'last'><a href = "http://www.ncssm.edu/~morrison/general/parents.php"><span>Parents FAQ</span></a></li>
+        </ul>
+   </li>
+   <li class='active has-sub'><a href='http://www.ncssm.edu/~morrison/personal'><span>Personal</span></a>
+      <ul>
+         <li class='has-sub'><a href='http://www.ncssm.edu/~morrison/personal/crackerBarrel/'><span>The Cracker Barrel</span></a>
+            <ul>
+               <li><a href='http://www.ncssm.edu/~morrison/personal/crackerBarrel/facebook.php'><span>Using Facebook</span></a></li>
+               <li><a href='http://www.ncssm.edu/~morrison/personal/crackerBarrel/mathStudyGuide.php'><span>Math Study Guide</span></a></li>
+               <li><a href='http://www.ncssm.edu/~morrison/personal/crackerBarrel/plants.php'><span>Plants Page</span></a></li>
+               <li><a href='http://www.ncssm.edu/~morrison/personal/crackerBarrel/computingHistory.php'><span>Personal Computing History</span></a></li>
+               <li class='last'><a href='http://www.ncssm.edu/~morrison/personal/crackerBarrel/eats.php'><span>The Eats Page</span></a></li>
+            </ul>
+         </li>
+         <li><a href='http://www.ncssm.edu/~morrison/personal/resume.php'><span>Resume</span></a></li>
+      </ul>
+   </li>
+</ul>
+</div>
+</header>
+
+<nav>
+
+<br/>
+<br/>
+<br/>
+<h2>Navigation</h2>
+
+<hr />
+<h3>Directories</h3>
+
+<a href = "..">Parent Directory</a><br/><hr/><h3>Files</h3><a href = "AList.java">AList.java</a><br/>
+<a href = "IList.java">IList.java</a><br/>
+<a href = "LList.java">LList.java</a><br/>
+<a href = "ListProject.php">ListProject.php</a><br/>
+<a href = "PS0.php">PS0.php</a><br/>
+<a href = "PS1.java">PS1.java</a><br/>
+<a href = "PS1.php">PS1.php</a><br/>
+<a href = "PS2.java">PS2.java</a><br/>
+<a href = "PS2.php">PS2.php</a><br/>
+<a href = "StreamOfConsciousness.java">StreamOfConsciousness.java</a><br/>
+<a href = "TestFX.java">TestFX.java</a><br/>
+<hr /><h3>Other Places</h3><a href = "http://www.ncssm.edu/~morrison/currentClasses">Current Courses Main Page</a><br/><a href = "http://www.ncssm.edu/~morrison">Morrison's Main Page</a><br/>
+
+</nav>
+
+<main>
+<br/>
+<br/>
+<br/>
+<p>
+Implement the methods in the class <code>PS1.java</code> as specified.  
+This will help  you get ready for <code>LP1</code>. A main method is
+included; place test code in this main method. Remember,  YOU have the
+solution manual to these problems, so use it.</p>
+
+<p><strong>How is this graded?</strong> Get the two easier questions and that's
+a B.  Get the hard one for an A.  Also, I expect you to TEST what youa are
+doing. For the annoying question, supply an HTML file that is a test case and a
+file to match it against.</p>
+<p>
+
+<p>For other questons write test code.  Tell me if, for some reason,
+your code does not compile.  Do not leave this to the last minute.
+</p>
+
+
+
+
+
+<br/>
+<br/>
+<br/>
+</main>
+</body>
+</html>

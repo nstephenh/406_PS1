@@ -20,24 +20,15 @@ public class PS1
     
     public static boolean parensRight(String expr) {
         IStack<Character> s= new AStack<>();
-        //Doing this with a stack is horribly inefficient,
-        // because we have to iterate through both the string and stack
-        int i = 0;
-        while (i < expr.length()){
-            s.push(expr.charAt(i));
-            i++;
-        }
-        int parencount = 0;
-        while (!(s.isEmpty())){
-            Character cur = s.pop();
-            if (cur.equals('(')){
-                parencount++;
-            }
-            if (cur.equals(')')){
-                parencount--;
+        for (int i = 0; i < expr.length(); i++){
+            Character cur = expr.charAt(i);
+            if (cur.equals(')') && s.peek().equals('(')){
+                s.pop();
+            }else if (cur.equals('(')){
+                s.push(cur);
             }
         }
-        return (parencount == 0);
+        return s.isEmpty();
     }
     /**
     *   Annoying but not too difficult problem
@@ -116,49 +107,20 @@ public class PS1
     */ 
     public static boolean isWellFormedTagSet(String[] moo)
     {
+        //Note that this only works if the tags come in the order of open tag followed by close tag
         IStack<String> s= new AStack<>();
-        int i = 0;
-        while (moo.length > i){
-            s.push(moo[i]);
-            i++;
-        }
-        i = 0;
-        Map<String, Integer> count = new HashMap<>();
-        while (!(s.isEmpty())){
-            String tag = s.pop();
-            //If the tag does not contain a slash (eg not an end tag of something like <br/>)
-            if (!(tag.contains("/"))) {
-                if (count.containsKey(tag)) {
-                    //If the tag aready exists increment the count
-                    int oldcount = count.get(tag);
-                    int newcount = oldcount;
-                    newcount++;
-                    count.replace(tag, oldcount, newcount);
-                } else {
-                    count.put(tag, 1);
-                }
-            }
+        for (int i = 0; i < moo.length; i++){
+            String tag = moo[i];
             //If the tag is something like <br/> we can ignore it
             if (!(tag.endsWith("/"))){
-                if (tag.startsWith("/")){
-                    tag = tag.substring(1);
-                    if (count.containsKey(tag)) {
-                        //If the tag aready exists recrement the count
-                        int oldcount = count.get(tag);
-                        int newcount = oldcount;
-                        newcount--;
-                        count.replace(tag, oldcount, newcount);
-                    } else {
-                        count.put(tag, -1);
-                    }
+                if (tag.startsWith("/") && tag.substring(1).equals(s.peek())){
+                    s.pop();
+                }else{
+                    s.push(tag);
                 }
             }
         }
-        System.out.println(count.toString());
-        Collection<Integer> zeroes = count.values();
-        zeroes.removeIf(p -> p==0);
-        System.out.println(count.toString());
-        return zeroes.isEmpty();
+        return s.isEmpty();
     }
     public static void main(String[] args){
         System.out.println(parensRight("(()")); //Should be false
